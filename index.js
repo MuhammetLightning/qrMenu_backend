@@ -29,14 +29,10 @@ app.get("/", (req, res) => {
 
 //middlewares
 // app.use(cors());
-const allowedOrigins = [
-  "http://192.168.1.152:3000",
-  "http://localhost:3000",
-  // Eklemek istediğiniz diğer orijinler buraya eklenebilir
-];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://qrmenu.onrender.com",
     optionsSuccessStatus: 200, // istek başarı durumu
     credentials: true, // kimlik bilgilerinin paylaşılmasını sağlar
   })
@@ -59,8 +55,12 @@ app.use((err, req, res, next) => {
     stack: err.stack,
   });
 });
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8800;
+}
 
-app.listen(1003, () => {
+app.listen(port, () => {
   connect();
   console.log("Connected to backend.");
 });

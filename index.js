@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: "https://qrmenu.onrender.com",
+    origin: "https://qrmenu-b4wd.onrender.com",
     optionsSuccessStatus: 200, // istek başarı durumu
     credentials: true, // kimlik bilgilerinin paylaşılmasını sağlar
   })
